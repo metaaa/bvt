@@ -1,0 +1,32 @@
+version: "3.4"
+
+services:
+  node:
+    image: node:18.9.0-bullseye
+    ports:
+      - "3007:3005"
+    working_dir: /var/www/html
+    volumes:
+      - ".:/var/www/html"
+    networks:
+      - betvictor
+    # to keep node container alive
+    command: "bash -c \"while true; do /bin/sleep 1; done\""
+
+  redis:
+    image: redis
+    ports:
+      - "6666:6666"
+
+  redis_insight:
+    image: redislabs/redisinsight
+    ports:
+      - '8001:8001'
+    volumes:
+      - redis_insight:/var/lib/redisinsight/db
+
+volumes:
+  redis_insight:
+networks:
+  betvictor:
+    driver: bridge
