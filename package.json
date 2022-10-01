@@ -8,26 +8,32 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "docker-compose exec -u 1000 node npm run ts-node src/server.js",
-    "install:dev": "docker-compose exec -u 1000 node npm install",
-    "prod": "npm run build && npm run start",
+    "start:dev": "docker-compose exec -u 1000 node npx nodemon",
+    "start:prod": "docker-compose exec -u 1000 node .build/server.js",
+    "install:dev": "docker-compose exec -u 1000 node npm install && docker-compose exec -u 0 node npm i -g ts-node typescript",
+    "build": "babel src --extensions \".js,.ts\" --out-dir .build --copy-files",
     "bash": "docker-compose exec -u 1000 node bash"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "ioredis": "^5.2.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.19.1",
     "@babel/preset-env": "^7.19.1",
     "@babel/preset-typescript": "^7.18.6",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.14",
     "@types/node": "^18.7.23",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
     "eslint": "^8.24.0",
-    "ts-node": "^10.9.1",
-    "tslib": "^2.4.0",
-    "typescript": "^4.8.3"
+    "nodemon": "^2.0.20",
+    "tsconfig-paths": "^4.1.0",
+    "tslib": "^2.4.0"
   }
 }
