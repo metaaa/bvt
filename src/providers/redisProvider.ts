@@ -23,13 +23,18 @@ class RedisProvider {
   }
 
   /**
-   * Save key-value
+   * Save key-value.
+   * Set expiry when specified.
    *
    * @param key
    * @param value
+   * @param ttl
    */
-  async setItem(key: string, value: any): Promise<void> {
+  async setItem(key: string, value: any, ttl: number|null = null): Promise<void> {
     await this.client.set(key, JSON.stringify(value));
+    if (ttl) {
+      await this.client.expire(key, ttl)
+    }
   }
 
   /**

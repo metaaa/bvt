@@ -35,6 +35,9 @@
       "@consts/*": [
         "src/consts/*"
       ],
+      "@helpers/*": [
+        "src/helpers/*"
+      ],
     }
   }
 }

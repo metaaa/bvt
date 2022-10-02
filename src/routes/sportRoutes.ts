@@ -1,4 +1,4 @@
-import {Router} from 'express';
+import { Router } from 'express';
 import SportController from '@modules/sports/controllers/SportController';
 
 const sportRouter: Router = Router();

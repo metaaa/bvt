@@ -1,4 +1,4 @@
-import {API_LOCALES, VALID_APP_LANGUAGES} from '../consts/appConsts'
+import {API_LOCALES, VALID_APP_LANGUAGES} from '@consts/appConsts'
 
 class ApiProvider {
   /**
