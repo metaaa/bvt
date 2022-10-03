@@ -41,7 +41,7 @@ Minimum requisites are:
 * `docker-compose up -d`
 * `cp .env.example .env`
 * `yarn install:dev`
-* `yarn:start:dev`
+* `yarn start:dev`
 
 ## API ENDPOINTS
 * Endpoint to list all sports
